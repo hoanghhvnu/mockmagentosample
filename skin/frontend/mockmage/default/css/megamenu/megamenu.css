@@ -10,10 +10,16 @@
     z-index: 9999 !important;
     background-color: #111;
     color: #fff;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
 }
 #megamenu ul, #megamenu li{
     list-style-type: none;
+
+}
+#megamenu > li ul > li{
+    padding-left: 10px;
+    width: 10em;
+    border-top: 1px solid red;
 }
 #megamenu > li {
     display: inline;
@@ -22,12 +28,20 @@
     margin: 0;
     padding: 12px 32px;
     position: relative;
+    /*text-transform: uppercase;*/
 }
+#megamenu > li > a{
+    text-transform: uppercase;
+}
+
 #megamenu li a {
     color: #fff;
     display: inline-block;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     text-decoration: none;
+}
+#megamenu li:hover{
+    cursor: pointer;
 }
 #megamenu li ul {
     background-color: #111;
@@ -35,7 +49,7 @@
     left: 0;
     position: absolute;
     top: 40px;
-    width: 155px;
+    /*width: 155px;*/
 }
 #megamenu li ul li ul {
     display: none;
@@ -57,7 +71,4 @@
 div.megacontainer{
     width: 100%;
     background-color: #111;
-}
-#megamenu > li> a {
-    text-transform: uppercase;
 }

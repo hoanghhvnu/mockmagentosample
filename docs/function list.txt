@@ -1,0 +1,48 @@
+Component Specification Hours Week
+Function list
+
+1. Module Mega Menu
+ Hiện thị menu dạng mega 8.00 1
+"Cho phép quản lí menu item trong admin
+Mỗi item có các type khác nhau (category link, custom link, block link )" 10.00 2
+"Cấu hình trong system
+(Xem chi tiết trong requirement)" 5.00 3
+
+2. Module Slider
+ "Quản lí được nhiều slider
+Mỗi slider có nhiều ảnh
+Có text hiển thị trên ảnh" 10.00 4
+Quản lý từng image. 6.00 5
+Quản lý từng image. 8.00 2
+Cấu hình trong system. 6.00
+
+3. Module Featured Product
+ Tạo attribute is_featured cho product 9.00
+Hiển thị sản phẩm nổi bật ở trang Home 8.00
+Hiển thị sản phẩm nổi bật ở trang category 8.00
+Cấu hình trong system 6.00 3
+
+4. Module Bestseller Product
+ Hiển thị danh sách sản phẩm bán chạy của theo số lượng đặt hàng dưới dạng slide. 11.00
+Hiện thị ở trang home sản phẩm bán chạy của cả site 8.00
+Nếu hiển thị ở trang category sản phẩm bán chạy ở category đó. 8.00
+Cấu hình trong system 6.00
+
+5. Module Filter
+ "Cho phép cấu hình hiển thị của bộ lọc sản phẩm trong magento
+Các kiểu hiện thị của filter :
+Kiểu checkbox
+Kiểu link
+Kiểu thẻ Select
+Kiểu color" 10.00
+Cho phép cấu hình trong admin mỗi attribute sẽ có kiểu hiện thị riêng. 10.00
+
+6. Module Product Label
+ Quản lí các label cho product (tạo attribute product_label kiểu multiselect) 10.00
+
+7. Module Product Zoom
+ "Cho phép zoom sản phẩm như ví dụ sau
+http://www.starplugins.com/cloudzoom" 5.00
+Cấu hình Zoom ( Chi tiết xem thêm Requirement) 4.00
+Setup Environmen
+Setup envỉomen Cài đặt môi trường và setup dự án 4 

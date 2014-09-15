@@ -1,0 +1,73 @@
+MOCK PROJECT MAGENTO 
+					( Time: 4 week )
+
+
+Yêu cầu: Tạo các module thực hiện các chức năng sau
+
+1.	Module Mega Menu
+- Tên module SM_MegaMenu
+- Hiện thị menu dạng mega 
+  (tham khảo http://www.brienlabs.com/wayout-css-menu/fullwidth-theme-customization.html)
+- Cho phép quản lí menu item trong admin, mỗi item có các type  khác nhau (category link, custom link, block link )
+- Cấu hình trong system tối thiểu phải có 
+  a.Enable Module thay thế menu default sang mega menu, 
+    Disable module quay về menu chuẩn của magento
+  b.Config cấp category hiện thị trong menu
+
+2.	Module slider
+- Tên module : SM_Slider
+- Quản lí được nhiều slider.(Tạo table để quản lí các slider) 
+- Mỗi slider có nhiều ảnh, có text hiển thị trên ảnh
+  ( Tạo table quản lí từng image)
+- Sử dụng plugin sau http://www.idangero.us/sliders/swiper/ để làm slider
+  + Cấu hình trong system tối thiểu phải có 
+    a)Enable/Disable Module
+    b)Cấu hình được loại hiển thị của slider 
+
+3.	Module Featured Product
+- Tên Module : SM_Featured
+- Tạo attribute is_featured cho product (sử dụng setup script của module)
+  + Có thể hiển thị ở trang home hoặc trang category. 
+  + Nếu hiện thị ở trang home thì là sản phẩm nổi bật của cả site.
+  + Nếu hiển thị ở trang category thì là sản phẩm nổi bật ở category đó.
+  + Cấu hình trong system tối thiểu phải có 
+       a)Enable/Disable Module
+       b)Cấu hình số lượng hiển thị sản phẩm trong một slide, hiệu ứng của slide
+
+4.	Module Bestseller Product
+- Tên Module : SM_Bestseller
+- Hiển thị danh sách sản phẩm bán chạy của theo số lượng đặt hàng dưới dạng slide.
+- Có thể hiển thị ở trang home hoặc trang category. 
+  + Nếu hiện thị ở trang home thì là sản phẩm bán chạy của cả site.
+  + Nếu hiển thị ở trang category thì là sản phẩm bán chạy ở category đó.
+  + Cấu hình trong system tối thiểu phải có 
+       a)Enable/Disable Module
+       b)Cấu hình số lượng hiển thị sản phẩm trong một slide, hiệu ứng của slide
+  
+5.	Module Filter
+- Tên module SM_Filter
+- Cho phép cấu hình hiển thị của bộ lọc sản phẩm trong magento.   
+  (Tham khảo chức năng trong module http://navigation.gomage.com/)
+  + Các kiểu hiện thị của filter : 
+    Kiểu checkbox
+    Kiểu link
+    Kiểu thẻ Select
+    Kiểu color  
+- Cho phép cấu hình trong admin mỗi attribute sẽ có kiểu hiện thị riêng
+
+6.	Module Product Label: 
+(Tham khảo chức năng trong module sau http://ecommerce.aheadworks.com/magento-extensions/on-sale.html)
+- Tên module : SM_ProductLabel
+- Quản lí các label cho product (tạo attribute product_label kiểu multiselect)
+- Mỗi label cần quản lí các thông tin sau : Name, Logo
+
+7.	Module Product Zoom
+- Cho phép zoom sản phẩm như ví dụ sau   
+  http://www.starplugins.com/cloudzoom
+- Cấu hình : 
+	Độ rộng dài của ảnh chính
+	Độ rộng dài của box zoom. 
+- Hiệu ứng zoom. 
+	Độ rộng dài của ảnh thumbnail
+
+

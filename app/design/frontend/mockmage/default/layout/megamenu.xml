@@ -32,7 +32,7 @@
             <block type="page/html_head" name='head.for.magemenu'>
                 <action method="addItem">
                     <type>skin_css</type>
-                    <name>css/megamenu.css</name>
+                    <name>css/megamenu/megamenu.css</name>
                 </action>
             </block>
         </reference>
