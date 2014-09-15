@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+    <megamenu_adminhtml_megamenu_index>
+        <reference name="content">
+            <!--<block type="web/adminhtml_web" name="web" />-->
+            <block type="megamenu/adminhtml_megamenu" name="list.megamenu" />
+        </reference>
+    </megamenu_adminhtml_megamenu_index>
+
+    <megamenu_adminhtml_megamenu_new>
+        <reference name="content">
+            <!--<block type="web/adminhtml_web" name="web" />-->
+            <block type="megamenu/adminhtml_megamenu" name="insert.megamenu" />
+        </reference>
+    </megamenu_adminhtml_megamenu_new>
+</layout>

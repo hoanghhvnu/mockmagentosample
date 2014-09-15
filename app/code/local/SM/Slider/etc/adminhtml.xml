@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <slider translate='title' module="slider">
+            <title>Slider</title>
+            <sort_order>210</sort_order>
+            <children>
+                <manageslider translate="title">
+                    <title>Manage slider</title>
+                    <sort_order>10</sort_order>
+                    <action>sliderrouter/adminhtml_slider</action>
+                </manageslider>
+                <item2 translate="title">
+                    <title>Manage image</title>
+                    <sort_order>20</sort_order>
+                    <action>sliderfront/adminhtml_imageslider</action>
+                </item2>
+                <item3 translate="title">
+                    <title>Config</title>
+                    <sort_order>30</sort_order>
+                    <action>adminhtml/system_config/edit/section/sm_slider</action>
+                </item3>
+
+            </children>
+        </slider>
+    </menu>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <sm_slider>
+                                        <title>Slider List</title>
+                                    </sm_slider>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

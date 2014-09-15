@@ -1,0 +1,39 @@
+<div class = 'megacontainer'>
+    <ul id="megamenu">
+
+
+        <?php
+        //echo "<pre>";
+
+        //    $cate = $this->getCategory();
+        //    var_dump($cate);
+        //    var_dump($this->getMegaItem());
+        $MegaItems = $this->getMegaItem();
+        //    var_dump($MegaItems);
+
+
+
+        foreach ($MegaItems as $Item){
+            switch($Item['type']){
+                case 1:
+//                echo 'category root id =';
+                    echo "<li>";
+                    echo $this->createCategoryLink($Item['title'],$Item['value']);
+                    echo "</li>";
+                    break;
+
+                case 2:
+                    echo "<li>";
+                    echo $this->createCustomLink($Item['title'],$Item['value']);
+                    echo "</li>";
+                    break;
+                case 3:
+                    echo "<li>";
+                    echo $this->createBlockLink($Item['title'],$Item['value']);
+                    echo "</li>";
+                    break;
+            }
+        } // end foreach
+        ?>
+    </ul>
+</div>

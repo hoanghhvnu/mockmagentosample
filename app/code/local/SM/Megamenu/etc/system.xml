@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <mymodule translate="label">
+            <label>My module config</label>
+            <sort_order>10</sort_order>
+        </mymodule>
+    </tabs>
+    <sections>
+        <sm_megamenu>
+            <label>Megamenu</label>
+            <tab>mymodule</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>10</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <sm_megamenu translate="label">
+                    <label>General</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>2000</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <show translate="label" module="core">
+                            <label>Enabled</label>
+                            <sort_order>10</sort_order>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </show>
+                        <!--<level translate="label">-->
+                            <!--<label>Level</label>-->
+                            <!--<frontend_type>text</frontend_type>-->
+                            <!--<sort_order>10</sort_order>-->
+                            <!--<comment>Level Subcategory</comment>-->
+                            <!--<show_in_default>1</show_in_default>-->
+                            <!--<show_in_website>1</show_in_website>-->
+                            <!--<show_in_store>1</show_in_store>-->
+                        <!--</level>-->
+                    </fields>
+                </sm_megamenu>
+            </groups>
+        </sm_megamenu>
+    </sections>
+</config>

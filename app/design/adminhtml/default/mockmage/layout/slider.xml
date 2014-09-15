@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+    <sliderrouter_adminhtml_slider_index>
+        <reference name="content">
+            <!--<block type="web/adminhtml_web" name="web" />-->
+            <block type="slider/adminhtml_slider" name="list.slider" />
+        </reference>
+    </sliderrouter_adminhtml_slider_index>
+
+    <sliderrouter_adminhtml_slider_new>
+        <reference name="content">
+            <!--<block type="web/adminhtml_web" name="web" />-->
+            <block type="slider/adminhtml_slider" name="insert.slider" />
+        </reference>
+    </sliderrouter_adminhtml_slider_new>
+
+    <sliderrouter_adminhtml_imageslider_index>
+        <reference name="content">
+            <!--<block type="web/adminhtml_web" name="web" />-->
+            <block type="slider/adminhtml_imageslider" name="list.imageslider" />
+        </reference>
+    </sliderrouter_adminhtml_imageslider_index>
+
+    <sliderrouter_adminhtml_imageslider_new>
+        <reference name="content">
+            <!--<block type="web/adminhtml_web" name="web" />-->
+            <block type="slider/adminhtml_imageslider" name="insert.imageslider" />
+        </reference>
+    </sliderrouter_adminhtml_imageslider_new>
+</layout>

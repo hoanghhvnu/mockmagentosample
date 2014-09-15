@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<config>
+    <!--<tabs>-->
+        <!--<slider translate="label" module="slider">-->
+            <!--<label>slider</label>-->
+            <!--<sort_order>210</sort_order>-->
+        <!--</slider>-->
+    <!--</tabs>-->
+    <sections>
+        <sm_slider>
+        <!--<general>-->
+            <label>Slider</label>
+            <!--<tab>slider</tab>-->
+            <tab>mymodule</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>10</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <sm_slider translate="label">
+                    <label>General</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <show translate="label" module="core">
+                            <label>Enabled</label>
+                            <comment>Show or Not for slider</comment>
+                            <sort_order>10</sort_order>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </show>
+
+                        <autoplay translate="label" module="core">
+                            <label>Autoplay time (in ms)</label>
+                            <sort_order>20</sort_order>
+                            <frontend_type>text</frontend_type>
+
+                            <show_in_default>5000</show_in_default>
+                            <show_in_website>5000</show_in_website>
+                            <show_in_store>5000</show_in_store>
+                        </autoplay>
+
+                        <speedanimate translate="label" module="core">
+                            <label>Speed of animation  (in ms)</label>
+                            <sort_order>30</sort_order>
+                            <frontend_type>text</frontend_type>
+
+                            <show_in_default>300</show_in_default>
+                            <show_in_website>300</show_in_website>
+                            <show_in_store>300</show_in_store>
+                        </speedanimate>
+
+                        <mode translate="label" module="slider">
+                            <label>Mode</label>
+                            <sort_order>11</sort_order>
+                            <frontend_type>select</frontend_type>
+                            <source_model>slider/slidermode</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </mode>
+
+                        <type translate="label" >
+                            <label>Type</label>
+                            <sort_order>20</sort_order>
+                            <frontend_type>select</frontend_type>
+                            <source_model>slider/slidertype</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </type>
+
+                        <slideperview translate="label">
+                            <label>Slide per view</label>
+                            <sort_order>40</sort_order>
+                            <frontend_type>text</frontend_type>
+
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </slideperview>
+
+
+
+
+                    </fields>
+                </sm_slider>
+
+                <sm_slider_advance translate="label">
+                <label>Advance Option (dangerous if you're not expert)</label>
+                <frontend_type>text</frontend_type>
+                <sort_order>20</sort_order>
+                <show_in_default>1</show_in_default>
+                <show_in_website>1</show_in_website>
+                <show_in_store>1</show_in_store>
+                    <fields>
+                        <extraoption translate="label">
+                            <label>Extra Option (separate by comma symbol ','. Example: loop: true, speed: 300, ...)(reference here: http://www.idangero.us/sliders/swiper/api.php</label>
+                            <sort_order>90</sort_order>
+                            <frontend_type>textarea</frontend_type>
+
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </extraoption>
+                    </fields>
+                </sm_slider_advance>
+
+            </groups>
+        </sm_slider>
+        <!--</general>-->
+    </sections>
+</config>
