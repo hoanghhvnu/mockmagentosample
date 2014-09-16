@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <sm_featured translate='title' module="megamenu">
+            <title>Featured Product</title>
+            <sort_order>300</sort_order>
+            <children>
+                <items translate="title">
+                    <title>Manage Feature</title>
+                    <sort_order>10</sort_order>
+                    <action>featured/adminhtml_featured</action>
+                </items>
+
+                <!--<setting module="admin">-->
+                    <!--<title>Config</title>-->
+                    <!--<sort_order>20</sort_order>-->
+                    <!--<action>adminhtml/system_config/edit/section/sm_megamenu</action>-->
+                <!--</setting>-->
+            </children>
+        </sm_featured>
+    </menu>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <sm_featured>
+                                        <title>feature List</title>
+                                    </sm_featured>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

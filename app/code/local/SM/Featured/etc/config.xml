@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <SM_Featured>
+            <version>0.1.1</version>
+        </SM_Featured>
+    </modules>
+    <frontend>
+        <routers>
+            <featuredrouter>
+                <use>standard</use>
+                <args>
+                    <module>SM_Featured</module>
+                    <frontName>featuredfront</frontName>
+                </args>
+            </featuredrouter>
+        </routers>
+        <layout>
+            <updates>
+                <featured>
+                    <file>featured.xml</file>
+                </featured>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+			<featuredrouter>
+				<use>admin</use>
+				<args>
+					<module>SM_Featured</module>
+					<frontName>featuredfront</frontName>
+				</args>
+			</featuredrouter>
+
+            <!--rewrite-->
+            <adminhtml>
+                <args>
+                    <modules>
+                        <sm_featured before="Mage_Adminhtml">SM_Featured_Adminhtml</sm_featured>
+                    </modules>
+                </args>
+            </adminhtml>
+
+        </routers>
+    </admin>
+
+    <adminhtml>
+
+		<layout>
+			<updates>
+				<featured>
+					<file>featured.xml</file>
+				</featured>
+			</updates>
+		</layout>
+    </adminhtml>
+
+    <global>
+        <models>
+            <featured>
+                <class>SM_Featured_Model</class>
+                <resourceModel>featured_mysql4</resourceModel>
+            </featured>
+            <featured_mysql4>
+                <class>SM_Featured_Model_Mysql4</class>
+                <!--<entities>-->
+                    <!--<featured>-->
+                        <!--<table>tbl_featured</table>-->
+                    <!--</featured>-->
+                <!--</entities>-->
+            </featured_mysql4>
+        </models>
+        <resources>
+            <featured_setup>
+                <setup>
+                    <module>SM_Featured</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </featured_setup>
+            <featured_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </featured_write>
+            <featured_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </featured_read>
+        </resources>
+        <blocks>
+            <featured>
+                <class>SM_Featured_Block</class>
+            </featured>
+            <!--<page>-->
+                <!--<rewrite>-->
+                    <!--<html_topmenu>SM_Featured_Block_Megamenu</html_topmenu>-->
+                <!--</rewrite>-->
+            <!--</page>-->
+
+            <adminhtml>
+                <rewrite>
+                    <catalog_product_grid>SM_Featured_Block_Adminhtml_Featured_Grid</catalog_product_grid>
+                </rewrite>
+            </adminhtml>
+
+        </blocks>
+        <helpers>
+            <featured>
+                <class>SM_Featured_Helper</class>
+            </featured>
+        </helpers>
+    </global>
+</config>

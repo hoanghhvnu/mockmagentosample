@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+    <cms_index_index>
+
+        <reference name="content">
+            <block type="featured/featured" name="show.feature.product" before="-">
+                <action method="setTemplate" >
+                    <!--<template>slider/showslider.phtml</template>-->
+                    <!--<template>slider/showslider.phtml</template>-->
+                    <template>featured/featured.phtml</template>
+                </action>
+            </block>
+
+        </reference>
+    </cms_index_index>
+</layout>
