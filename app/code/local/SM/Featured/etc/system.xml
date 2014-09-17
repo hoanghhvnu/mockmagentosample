@@ -1,50 +1,96 @@
-<!--<?xml version="1.0"?>-->
-<!--<config>-->
-    <!--<tabs>-->
-        <!--<mymodule translate="label">-->
-            <!--<label>My module config</label>-->
-            <!--<sort_order>10</sort_order>-->
-        <!--</mymodule>-->
-    <!--</tabs>-->
-    <!--<sections>-->
-        <!--<sm_megamenu>-->
-            <!--<label>Megamenu</label>-->
-            <!--<tab>mymodule</tab>-->
-            <!--<frontend_type>text</frontend_type>-->
-            <!--<sort_order>10</sort_order>-->
-            <!--<show_in_default>1</show_in_default>-->
-            <!--<show_in_website>1</show_in_website>-->
-            <!--<show_in_store>1</show_in_store>-->
-            <!--<groups>-->
-                <!--<sm_megamenu translate="label">-->
-                    <!--<label>General</label>-->
-                    <!--<frontend_type>text</frontend_type>-->
-                    <!--<sort_order>2000</sort_order>-->
-                    <!--<show_in_default>1</show_in_default>-->
-                    <!--<show_in_website>1</show_in_website>-->
-                    <!--<show_in_store>1</show_in_store>-->
-                    <!--<fields>-->
-                        <!--<show translate="label" module="core">-->
-                            <!--<label>Enabled</label>-->
-                            <!--<sort_order>10</sort_order>-->
+<?xml version="1.0"?>
+<config>
+
+    <sections>
+        <sm_featured>
+            <label>Featured Product</label>
+            <tab>mymodule</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>10</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <sm_featured translate="label">
+                    <label>Enable/Disable</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>2000</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enable translate="label" module="core">
+                            <label>Enabled</label>
+                            <sort_order>10</sort_order>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enable>
+                    </fields>
+                </sm_featured>
+                <sm_featured_config translate="label">
+                    <label>Config</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>3000</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <featuredquantity translate="label" module="core">
+                            <label>Product / slide</label>
+                            <sort_order>10</sort_order>
+                            <frontend_type>text</frontend_type>
+
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </featuredquantity>
+
+                        <!--<slidetype translate="label" module="core">-->
+                            <!--<label>Slide Type</label>-->
+                            <!--<sort_order>20</sort_order>-->
                             <!--<frontend_type>select</frontend_type>-->
-                            <!--<source_model>adminhtml/system_config_source_yesno</source_model>-->
+                            <!--<source_model>slider/slidertype</source_model>-->
                             <!--<show_in_default>1</show_in_default>-->
                             <!--<show_in_website>1</show_in_website>-->
                             <!--<show_in_store>1</show_in_store>-->
-                        <!--</show>-->
-                        <!--&lt;!&ndash;<level translate="label">&ndash;&gt;-->
-                            <!--&lt;!&ndash;<label>Level</label>&ndash;&gt;-->
-                            <!--&lt;!&ndash;<frontend_type>text</frontend_type>&ndash;&gt;-->
-                            <!--&lt;!&ndash;<sort_order>10</sort_order>&ndash;&gt;-->
-                            <!--&lt;!&ndash;<comment>Level Subcategory</comment>&ndash;&gt;-->
-                            <!--&lt;!&ndash;<show_in_default>1</show_in_default>&ndash;&gt;-->
-                            <!--&lt;!&ndash;<show_in_website>1</show_in_website>&ndash;&gt;-->
-                            <!--&lt;!&ndash;<show_in_store>1</show_in_store>&ndash;&gt;-->
-                        <!--&lt;!&ndash;</level>&ndash;&gt;-->
-                    <!--</fields>-->
-                <!--</sm_megamenu>-->
-            <!--</groups>-->
-        <!--</sm_megamenu>-->
-    <!--</sections>-->
-<!--</config>-->
+                        <!--</slidetype>-->
+
+                        <limitfeatured translate="label" >
+                            <label>Limit total featured</label>
+                            <comment>Enter zero (0) to unlimit</comment>
+                            <sort_order>30</sort_order>
+                            <frontend_type>text</frontend_type>
+
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </limitfeatured>
+
+                        <autoplay translate="label" module="core">
+                            <label>Autoplay time (in ms)</label>
+                            <sort_order>20</sort_order>
+                            <frontend_type>text</frontend_type>
+
+                            <show_in_default>5000</show_in_default>
+                            <show_in_website>5000</show_in_website>
+                            <show_in_store>5000</show_in_store>
+                        </autoplay>
+
+                        <speedanimate translate="label" module="core">
+                            <label>Speed of animation  (in ms)</label>
+                            <sort_order>30</sort_order>
+                            <frontend_type>text</frontend_type>
+
+                            <show_in_default>300</show_in_default>
+                            <show_in_website>300</show_in_website>
+                            <show_in_store>300</show_in_store>
+                        </speedanimate>
+                    </fields>
+                </sm_featured_config>
+            </groups>
+        </sm_featured>
+    </sections>
+</config>

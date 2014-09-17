@@ -57,6 +57,19 @@
     </adminhtml>
 
     <global>
+        <events>
+            <!--dump layout for every page-->
+            <controller_action_layout_generate_blocks_before>
+                <observers>
+                    <debug_layout>
+                        <type>disabled</type>
+                        <class>SM_Featured_Model_Showhandle</class>
+                        <method>showHandle</method>
+                    </debug_layout>
+                </observers>
+            </controller_action_layout_generate_blocks_before>
+            <!--end dump layout-->
+        </events>
         <models>
             <featured>
                 <class>SM_Featured_Model</class>
@@ -114,4 +127,15 @@
             </featured>
         </helpers>
     </global>
+    <!--for default values-->
+    <default>
+        <sm_featured>
+            <sm_featured>
+                <enable>0</enable>
+            </sm_featured>
+            <sm_featured_config>
+                <featuredquantity>5</featuredquantity>
+            </sm_featured_config>
+        </sm_featured>
+    </default>
 </config>

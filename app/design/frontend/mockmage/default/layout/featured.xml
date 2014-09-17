@@ -4,8 +4,8 @@
     <cms_index_index>
 
         <reference name="content">
-            <block type="featured/featured" name="show.feature.product" before="-">
-                <action method="setTemplate" >
+            <block type="featured/featured" name="show.feature.product" before="-" >
+                <action method="setTemplate" ifconfig="sm_featured/sm_featured/enable">
                     <!--<template>slider/showslider.phtml</template>-->
                     <!--<template>slider/showslider.phtml</template>-->
                     <template>featured/featured.phtml</template>
@@ -14,4 +14,18 @@
 
         </reference>
     </cms_index_index>
+
+    <catalog_category_view>
+
+        <reference name="content">
+            <block type="featured/featured" name="show.feature.product" before="-">
+                <action method="setTemplate" ifconfig="sm_featured/sm_featured/enable">
+                    <!--<template>slider/showslider.phtml</template>-->
+                    <!--<template>slider/showslider.phtml</template>-->
+                    <template>featured/featured.phtml</template>
+                </action>
+            </block>
+
+        </reference>
+    </catalog_category_view>
 </layout>

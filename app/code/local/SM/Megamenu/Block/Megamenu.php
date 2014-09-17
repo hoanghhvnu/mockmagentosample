@@ -10,23 +10,12 @@ class SM_Megamenu_Block_Megamenu extends Mage_Core_Block_Template
 		return parent::_prepareLayout();
     }
     
-     public function getMegamenu()
-     { 
-        if (!$this->hasData('megamenu')) {
-            $this->setData('megamenu', Mage::registry('megamenu'));
-        }
-        return $this->getData('megamenu');
-        
-    }
+
 
     public function getMegaItem(){
         $megacollection = Mage::getModel('megamenu/megamenu')
         ->getCollection()->getData()
-            ;
-//        echo "<pre>";
-//        var_dump($megacollection);
-//        die();
-
+        ;
         $ListItem = array();
         foreach ($megacollection as $item){
             $status = $item['status'];
@@ -78,7 +67,8 @@ class SM_Megamenu_Block_Megamenu extends Mage_Core_Block_Template
         $result = '';
 
         if($isRoot != TRUE){
-            $result .= "<li>" . "<a href='" . $CateDetail['url_path'] . "'>" . $CateDetail['name'] . "</a>";
+            $result .= "<li>" . "<a href='" . Mage::getBaseUrl() .  $CateDetail['url_path'] . "'>"
+                .$CategoryId . $CateDetail['name'] . "</a>";
         }
 
 
@@ -134,12 +124,16 @@ class SM_Megamenu_Block_Megamenu extends Mage_Core_Block_Template
     } // end createCategoryLink
 
     public function createCategoryLink($Title='', $CategoryId=''){
+        $CateDetail = Mage::getModel('catalog/category')
+            ->load($CategoryId);
         $link = '';
         if($Title && $CategoryId){
-            $link .= "<a href='#'>";
+            $link .= "<a href='" . Mage::getBaseUrl() . $CateDetail['url_path'] ."'>";
+            $link .= "(" . $CategoryId .  ")";
             $link .= $Title;
             $link .= "</a>";
             $link .= "<ul id = 'catelink'>";
+//            $link .= $this->showCategory($CategoryId, TRUE);
             $link .= $this->showCategory($CategoryId, TRUE);
             $link .= "</ul>";
             return $link;

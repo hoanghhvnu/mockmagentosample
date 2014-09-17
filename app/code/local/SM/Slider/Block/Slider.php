@@ -8,12 +8,15 @@ class SM_Slider_Block_Slider extends Mage_Core_Block_Template
     }
 	public function _prepareLayout()
     {
+        
 //        echo __METHOD__;
         $SliderStatus = Mage::getStoreConfig('sm_slider/sm_slider/show');
 
         if($SliderStatus == 1){
+            $BlockHead = Mage::app()->getLayout()->getBlock('head');
             Mage::app()->getLayout()->getBlock('head')->addItem('skin_css', 'css/slider/lib/idangerous.swiper.css');
             $this->getLayout()->getBlock('head')->addItem('skin_js', 'js/slider/lib/idangerous.swiper.js');
+//            $BlockHead->addItem('skin_js','js/runslider.js','defer');
         }
 
 		return parent::_prepareLayout();

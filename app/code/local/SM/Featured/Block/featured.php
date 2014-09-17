@@ -60,24 +60,30 @@ class SM_Featured_Block_Featured extends Mage_Catalog_Block_Product_Abstract{
      */
     protected function _getProductCollection()
     {
-//        echo __METHOD__;
+        $HandleArray = Mage::app()->getLayout()->getUpdate()->getHandles();
+        $CategoryHandle = 'catalog_category_view';
 
         $collection = Mage::getResourceModel('catalog/product_collection');
         $collection->setVisibility(Mage::getSingleton('catalog/product_visibility')->getVisibleInCatalogIds());
 
-
         $collection = $this->_addProductAttributesAndPrices($collection)
             ->addStoreFilter()
-
             ->addAttributeToFilter('is_featured',1)
             ->setPageSize($this->getProductsCount())
             ->setCurPage(1)
+
         ;
-//        echo '<pre>';
-//        var_dump($collection->getData());
-//        die();
+
+        // Filter by Category if it is in category page
+        if(in_array($CategoryHandle, $HandleArray)){
+            $CategoryId = Mage::getModel('catalog/layer')->getCurrentCategory()->getId();
+            $CategoryModel = Mage::getModel('catalog/category')->load($CategoryId);
+            $collection->addCategoryFilter($CategoryModel)
+            ;
+        }
+//        $collection->getSelect()->limit($this->getProductsCount());
         return $collection;
-    }
+    } // end _getProductCollection
 
     /**
      * Prepare collection with new products
@@ -109,10 +115,31 @@ class SM_Featured_Block_Featured extends Mage_Catalog_Block_Product_Abstract{
      */
     public function getProductsCount()
     {
+        $LimitFeatured = Mage::getStoreConfig('sm_featured/sm_featured_config/limitfeatured');
+        if(ctype_digit($LimitFeatured) && $LimitFeatured > 0){
+            $this->_productsCount = $LimitFeatured;
+        }
         if (null === $this->_productsCount) {
             $this->_productsCount = self::DEFAULT_PRODUCTS_COUNT;
         }
+
         return $this->_productsCount;
     }
+
+    public function _prepareLayout()
+    {
+
+//        echo __METHOD__;
+        $FeaturedStatus = Mage::getStoreConfig('sm_featured/sm_featured/enable');
+//        var_dump($FeaturedStatus);
+//        die();
+
+        if($FeaturedStatus == 1){
+            Mage::app()->getLayout()->getBlock('head')->addItem('skin_css', 'css/slider/lib/idangerous.swiper.css');
+            $this->getLayout()->getBlock('head')->addItem('skin_js', 'js/slider/lib/idangerous.swiper.js');
+        }
+
+        return parent::_prepareLayout();
+    } // end _prepareLayout()
 } // end class
 // end file

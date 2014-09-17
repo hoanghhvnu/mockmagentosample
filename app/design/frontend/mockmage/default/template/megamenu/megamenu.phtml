@@ -1,18 +1,7 @@
 <div class = 'megacontainer'>
     <ul id="megamenu">
-
-
         <?php
-        //echo "<pre>";
-
-        //    $cate = $this->getCategory();
-        //    var_dump($cate);
-        //    var_dump($this->getMegaItem());
         $MegaItems = $this->getMegaItem();
-        //    var_dump($MegaItems);
-
-
-
         foreach ($MegaItems as $Item){
             switch($Item['type']){
                 case 1:

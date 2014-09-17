@@ -1,40 +1,19 @@
 <?php
 /**
- * Magento
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the Academic Free License (AFL 3.0)
- * that is bundled with this package in the file LICENSE_AFL.txt.
- * It is also available through the world-wide-web at this URL:
- * http://opensource.org/licenses/afl-3.0.php
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to license@magentocommerce.com so we can send you a copy immediately.
- *
- * DISCLAIMER
- *
- * Do not edit or add to this file if you wish to upgrade Magento to newer
- * versions in the future. If you wish to customize Magento for your
- * needs please refer to http://www.magentocommerce.com for more information.
- *
- * @category    design
- * @package     rwd_default
- * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
- * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ * This template show featured product
  */
 ?>
-<?php if (($_products = $this->getProductFeatured()) && $_products->getSize()): ?>
+<?php if (($_products = $this->getProductCollection()) && $_products->getSize()): ?>
+<!--    --><?php //echo var_dump($_products->getData());die();?>
     <h2 class="subtitle"><?php echo $this->__('Featured Products') ?></h2>
     <?php $_columnCount = $this->getColumnCount(); ?>
-    <ul class="products-grid products-grid--max-<?php echo $_columnCount; ?>-col">
+<div class="swiper-container featured">
+    <div class="swiper-wrapper">
         <?php $i=0; foreach ($_products->getItems() as $_product): ?>
-            <?php /*if ($i++%$_columnCount==0): ?>
-        <ul class="products-grid">
-        <?php endif*/ ?>
-            <li class="item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">
+
+        <div class="swiper-slide">
                 <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_product->getName()) ?>" class="product-image">
-                    <?php $_imgSize = 260; ?>
+                    <?php $_imgSize = 100; ?>
                     <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($_imgSize); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
                 </a>
                 <h3 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_product->getName()) ?>"><?php echo $this->escapeHtml($_product->getName()) ?></a></h3>
@@ -55,10 +34,41 @@
                         <?php endif; ?>
                     </ul>
                 </div>
-            </li>
+            </div>
+<!--            </li>-->
             <?php /*if ($i%$_columnCount==0 || $i==count($_products)): ?>
         </ul>
         <?php endif*/ ?>
         <?php endforeach; ?>
-    </ul>
+        </div>
+    </div>
+<!--    </ul>-->
 <?php endif; ?>
+<?php
+    $NumberProductIsFeatured = $this->getProductCollection()->count();
+//    echo 'num'. $NumberProductIsFeatured;
+    $FeaturedConfig = Mage::getStoreConfig('sm_featured/sm_featured_config');
+    $SlidePerView = $FeaturedConfig['featuredquantity'];
+
+
+    $AutoPlayTime = isset($FeaturedConfig['autoplay']) ? $FeaturedConfig['autoplay'] : 5000;
+    $SpeedAnimation = isset($FeaturedConfig['speedanimate']) ? $FeaturedConfig['speedanimate'] : 300;
+
+//    var_dump($SlidePerView);
+?>
+<script>
+
+
+    var featuredSlider = new Swiper('.featured',{
+        slidesPerView: <?php echo $SlidePerView ?>,
+        autoplay: <?php echo $AutoPlayTime ?>,
+        speed: <?php echo $SpeedAnimation ?>,
+//        slidesPerView: ,
+//            loop: true,
+        <?php
+            if($NumberProductIsFeatured >= $SlidePerView){
+                echo 'loop: true' . ',';
+            }
+        ?>
+    });
+</script>
