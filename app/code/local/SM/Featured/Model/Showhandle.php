@@ -9,21 +9,22 @@ class SM_Featured_Model_Showhandle{
     public function showHandle($o)
     {
         $Handle = $o->getLayout()->getUpdate()->getHandles();
-        echo "<pre>";
-        var_dump( $Handle);
-        echo Mage::helper('core/url')->getCurrentUrl();
-        echo Mage::registry('current_category')->getId();
-        Mage::getModel('catalog/layer')->getCurrentCategory()->getId();
+//        echo "<pre>";
+//        var_dump( $Handle);
+//        echo Mage::helper('core/url')->getCurrentUrl();
+//        echo Mage::registry('current_category')->getId();
+//        Mage::getModel('catalog/layer')->getCurrentCategory()->getId();
 //        die();
-        echo "</pre>";
-        return true;
+//        echo "</pre>";
+//        return true;
         echo __METHOD__;
         $lay = $o->getLayout()->getUpdate();
         echo "<pre>";
         echo "<textarea>";
         var_dump($lay);
         echo "</textarea>";
-        $req  = Mage::app()->getRequest();
+        return true;
+//        $req  = Mage::app()->getRequest();
 //        echo "<pre>";
 //        var_dump($o->getLayout()->getUpdate()->asString());
         $info = sprintf(

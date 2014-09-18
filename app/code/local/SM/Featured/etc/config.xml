@@ -62,6 +62,7 @@
             <controller_action_layout_generate_blocks_before>
                 <observers>
                     <debug_layout>
+                        <!--<type>singleton</type>-->
                         <type>disabled</type>
                         <class>SM_Featured_Model_Showhandle</class>
                         <method>showHandle</method>
@@ -69,6 +70,44 @@
                 </observers>
             </controller_action_layout_generate_blocks_before>
             <!--end dump layout-->
+
+            <!--add grid to backend-->
+            <!--<core_block_abstract_to_html_before>-->
+            <adminhtml_block_html_before>
+                <observers>
+                    <add_featured_column_to_product_grid>
+                        <!--<type>singleton</type>-->
+                        <type>disabled</type>
+                        <class>SM_Featured_Model_CustomizeProductGrid</class>
+                        <method>addFeaturedColumn</method>
+                    </add_featured_column_to_product_grid>
+                </observers>
+            </adminhtml_block_html_before>
+            <!--</core_block_abstract_to_html_before>-->
+
+            <!--edit collection before product-->
+            <catalog_product_collection_load_before>
+                <observers>
+                    <edit_collection_to_add_featured>
+                        <type>singleton</type>
+                        <!--<type>disabled</type>-->
+                        <class>SM_Featured_Model_CustomizeProductGrid</class>
+                        <method>addSelect</method>
+                    </edit_collection_to_add_featured>
+                </observers>
+            </catalog_product_collection_load_before>
+
+            <!--add massaction-->
+            <adminhtml_catalog_product_grid_prepare_massaction>
+                <observers>
+                    <add_massaction>
+                        <type>singleton</type>
+                        <!--<type>disabled</type>-->
+                        <class>SM_Featured_Model_CustomizeProductGrid</class>
+                        <method>addMassaction</method>
+                    </add_massaction>
+                </observers>
+            </adminhtml_catalog_product_grid_prepare_massaction>
         </events>
         <models>
             <featured>

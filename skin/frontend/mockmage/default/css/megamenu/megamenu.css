@@ -68,6 +68,9 @@
 #megamenu li:hover > ul {
     display: block;
 }
+#megamenu li.active-category{
+    background-color: #E20001;
+}
 div.megacontainer{
     width: 100%;
     background-color: #111;

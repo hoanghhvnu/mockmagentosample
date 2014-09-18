@@ -7,6 +7,8 @@ class SM_Megamenu_Block_Megamenu extends Mage_Core_Block_Template
     }
 	public function _prepareLayout()
     {
+        $BlockHead = Mage::app()->getLayout()->getBlock('head');
+        $BlockHead->addItem('skin_js','js/jquery-1.10.2.min.js');
 		return parent::_prepareLayout();
     }
     
@@ -67,7 +69,7 @@ class SM_Megamenu_Block_Megamenu extends Mage_Core_Block_Template
         $result = '';
 
         if($isRoot != TRUE){
-            $result .= "<li>" . "<a href='" . Mage::getBaseUrl() .  $CateDetail['url_path'] . "'>"
+            $result .= "<li". " " . 'category_id='.$CategoryId  .">" . "<a href='" . Mage::getBaseUrl() .  $CateDetail['url_path'] . "'>"
                 .$CategoryId . $CateDetail['name'] . "</a>";
         }
 

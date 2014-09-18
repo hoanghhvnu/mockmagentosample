@@ -5,8 +5,7 @@
         foreach ($MegaItems as $Item){
             switch($Item['type']){
                 case 1:
-//                echo 'category root id =';
-                    echo "<li>";
+                    echo "<li category_id=".$Item['value']. ">";
                     echo $this->createCategoryLink($Item['title'],$Item['value']);
                     echo "</li>";
                     break;
@@ -26,3 +25,30 @@
         ?>
     </ul>
 </div>
+
+<?php
+/**
+ * Auto hightlight active (current) category
+ */
+$PathIds = Mage::getModel('catalog/layer')->getCurrentCategory()->getPathIds();
+?>
+<script>
+    $(function(){
+
+        <?php foreach ($PathIds as $id) : ?>
+             $('li[category_id=<?php echo $id; ?>]').addClass('active-category');
+        <?php endforeach; ?>
+        /**
+         * for Home
+          */
+        <?php $HandleArray = Mage::app()->getLayout()->getUpdate()->getHandles();
+            if(in_array('cms_index_index',$HandleArray)){
+            ?>
+                $('#megamenu >li:first-child').addClass('active-category');
+            <?php
+            }
+         ?>
+    });
+</script>
+
+

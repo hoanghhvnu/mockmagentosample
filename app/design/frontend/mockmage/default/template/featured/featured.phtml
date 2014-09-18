@@ -3,6 +3,26 @@
  * This template show featured product
  */
 ?>
+<style>
+    hr.style-eight {
+        padding: 0;
+        border: none;
+        border-top: medium double #333;
+        color: #333;
+        text-align: center;
+    }
+    hr.style-eight:after {
+        content: "<?php echo $this->__('Featured Product');?>";
+        display: inline-block;
+        position: relative;
+        top: -0.7em;
+        font-size: 1.5em;
+        padding: 0 0.25em;
+        background: white;
+
+</style>
+<hr class="style-eight"/>
+
 <?php if (($_products = $this->getProductCollection()) && $_products->getSize()): ?>
 <!--    --><?php //echo var_dump($_products->getData());die();?>
     <h2 class="subtitle"><?php echo $this->__('Featured Products') ?></h2>
