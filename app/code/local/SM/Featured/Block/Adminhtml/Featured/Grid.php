@@ -15,7 +15,8 @@ class SM_Featured_Block_Adminhtml_Featured_Grid extends Mage_Adminhtml_Block_Cat
                 'type'  => 'options',
                 'options' => array(
                     0 => 'No',
-                    1 => 'Yes',
+                    1 => 'Category',
+                    2 => 'Home',
                 ),
             ),
             'action'
@@ -24,10 +25,12 @@ class SM_Featured_Block_Adminhtml_Featured_Grid extends Mage_Adminhtml_Block_Cat
     } // end _PrepareColumn
 
 //    protected function _prepareMassaction(){
-//        $featurestatuses = array(
-//            array('label' => 'No', 'value' => '0'),
-//            array('label' => 'Yes', 'value' => '1'),
-//        );
+
+//$featurestatuses = array(
+//array('label' => 'No', 'value' => '0'),
+//array('label' => 'Category', 'value' => '1'),
+//array('label' => 'Home', 'value' => '2'),
+//);
 //
 //        array_unshift($featurestatuses, array('label'=>'', 'value'=>''));
 //        $this->getMassactionBlock()->addItem('featured', array(

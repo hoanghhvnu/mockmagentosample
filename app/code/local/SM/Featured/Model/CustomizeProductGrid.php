@@ -17,7 +17,8 @@ class SM_Featured_Model_CustomizeProductGrid{
                     'type'  => 'options',
                     'options' => array(
                         0 => 'No',
-                        1 => 'Yes',
+                        1 => 'Category',
+                        2 => 'Home'
                     ),
                 ),
                 'action'
@@ -35,7 +36,8 @@ class SM_Featured_Model_CustomizeProductGrid{
 
         $featurestatuses = array(
             array('label' => 'No', 'value' => '0'),
-            array('label' => 'Yes', 'value' => '1'),
+            array('label' => 'Category', 'value' => '1'),
+            array('label' => 'Home', 'value' => '2'),
         );
 
         array_unshift($featurestatuses, array('label'=>'', 'value'=>''));

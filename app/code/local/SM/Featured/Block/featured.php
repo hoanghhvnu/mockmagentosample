@@ -15,6 +15,7 @@ class SM_Featured_Block_Featured extends Mage_Catalog_Block_Product_New{
     {
         $HandleArray = Mage::app()->getLayout()->getUpdate()->getHandles();
         $CategoryHandle = 'catalog_category_view';
+        $HomeHandle = 'cms_index_index';
 
         $collection = Mage::getResourceModel('catalog/product_collection');
         $collection->setVisibility(Mage::getSingleton('catalog/product_visibility')->getVisibleInCatalogIds());
@@ -26,13 +27,17 @@ class SM_Featured_Block_Featured extends Mage_Catalog_Block_Product_New{
 
         $collection = $this->_addProductAttributesAndPrices($collection)
             ->addStoreFilter()
-            ->addAttributeToFilter('is_featured',1)
+//            ->addAttributeToFilter('is_featured',1)
             ->setPageSize($this->getProductsCount())
             ->setCurPage(1)
         ;
+        if(in_array($HomeHandle, $HandleArray)){
+            $collection->addAttributeToFilter('is_featured',2);
+        }
         // Filter by Category if it is in category page
-        if(in_array($CategoryHandle, $HandleArray)){
+        else if(in_array($CategoryHandle, $HandleArray)){
 //            echo 'in cate';
+            $collection->addAttributeToFilter('is_featured',1);
             $CategoryId = Mage::getModel('catalog/layer')->getCurrentCategory()->getId();
             $CategoryModel = Mage::getModel('catalog/category')->load($CategoryId);
             $collection->addCategoryFilter($CategoryModel)

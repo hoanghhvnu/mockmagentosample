@@ -10,18 +10,12 @@ $installer->startSetup();
 $installer->removeAttribute('catalog_product', 'is_featured');
 
 
-
 $installer->addAttribute('catalog_product', 'is_featured', array(
     'type'              => 'int',
-    'input'             => 'boolean',
+    'input'             => 'select',
     'label'             => 'Is featured',
-    'option'            => array(
-        'values' => array(
-            1 => 'Yes',
-            0 => 'No',
-        ),
+    'source'      => 'featured/featuredtype'
 
-    ),
 ));
 //die('run success');
 $installer->endSetup();
