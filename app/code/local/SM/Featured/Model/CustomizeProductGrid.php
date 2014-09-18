@@ -5,10 +5,13 @@
  * Date: 9/17/14
  * Time: 9:01 PM
  */
-class SM_Featured_Model_CustomizeProductGrid{
-    public function addFeaturedColumn(Varien_Event_Observer $observer){
+class SM_Featured_Model_CustomizeProductGrid
+{
+    public function addFeaturedColumn(Varien_Event_Observer $observer)
+    {
         $block = $observer->getBlock();
-        if($block->getId() == 'productGrid'){
+        if($block->getType() == 'adminhtml/catalog_product_grid'){
+//        if ($block->getId() == 'productGrid'){
             $block->addColumnAfter('featured',
                 array(
                     'header'=> Mage::helper('catalog')->__('is Featured'),
@@ -18,20 +21,22 @@ class SM_Featured_Model_CustomizeProductGrid{
                     'options' => array(
                         0 => 'No',
                         1 => 'Category',
-                        2 => 'Home'
+                        2 => 'Home',
                     ),
                 ),
                 'action'
             );
-        } // end if
-    } // end method addFeaturedColumn
+        }
+
+    } // end function
 
     public function addSelect(Varien_Event_Observer $observer){
         $collection = $observer->getCollection();
         $collection->addAttributeToSelect('is_featured');
     } // end method addFeaturedColumn
 
-    public function addMassaction(Varien_Event_Observer $observer){
+    public function addMassaction(Varien_Event_Observer $observer)
+    {
         $block = $observer->getEvent()->getBlock();
 
         $featurestatuses = array(

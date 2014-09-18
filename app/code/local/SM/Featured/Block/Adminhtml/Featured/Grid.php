@@ -6,23 +6,23 @@
  * Time: 11:54 PM
  */
 class SM_Featured_Block_Adminhtml_Featured_Grid extends Mage_Adminhtml_Block_Catalog_Product_Grid{
-    protected function _prepareColumns(){
-        $this->addColumnAfter('featured',
-            array(
-                'header'=> Mage::helper('catalog')->__('is Featured'),
-                'width' => '70px',
-                'index' => 'is_featured',
-                'type'  => 'options',
-                'options' => array(
-                    0 => 'No',
-                    1 => 'Category',
-                    2 => 'Home',
-                ),
-            ),
-            'action'
-        );
-        return parent::_prepareColumns();
-    } // end _PrepareColumn
+//    protected function _prepareColumns(){
+//        $this->addColumnAfter('featured',
+//            array(
+//                'header'=> Mage::helper('catalog')->__('is Featured'),
+//                'width' => '70px',
+//                'index' => 'is_featured',
+//                'type'  => 'options',
+//                'options' => array(
+//                    0 => 'No',
+//                    1 => 'Category',
+//                    2 => 'Home',
+//                ),
+//            ),
+//            'action'
+//        );
+//        return parent::_prepareColumns();
+//    } // end _PrepareColumn
 
 //    protected function _prepareMassaction(){
 
