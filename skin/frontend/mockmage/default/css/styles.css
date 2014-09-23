@@ -17,3 +17,46 @@
 /*div.featured-swiper-slide {*/
     /*float: left;*/
 /*}*/
+
+/*ul.links > li {*/
+    /*float: left;*/
+    /*list-style-type: none;*/
+    /*padding: 0px 9px;*/
+    /*border-left: 1px solid gray;*/
+/*}*/
+/*ul.links > li > a {*/
+    /*color: black;*/
+    /*text-decoration: none;*/
+/*}*/
+
+/*p.welcome-msg {*/
+    /*display: inline;*/
+    /*float: left;*/
+/*}*/
+/*ul.links {*/
+    /*float: left;*/
+    /*display: inline-block;*/
+/*}*/
+/*div.form-languages{*/
+    /*float: left;*/
+/*}*/
+/*div.phone-number{*/
+    /*display: inline;*/
+    /*float:left;*/
+    /*width: 30%;*/
+/*}*/
+/*div.quick-access{*/
+    /*float:right;*/
+    /*display: inline;*/
+    /*width: 40%;*/
+/*}*/
+/*div.logo{*/
+    /*clear:both;*/
+    /*position: relative;*/
+    /*z-index: 10;*/
+    /*padding-left: 200px;*/
+/*}*/
+/*div.phone-number > span{*/
+    /*position: relative;*/
+    /*left:200px;*/
+/*}*/

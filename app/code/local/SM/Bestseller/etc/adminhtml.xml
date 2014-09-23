@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <sm_bestseller translate='title'>
+            <title>Best seller</title>
+            <sort_order>400</sort_order>
+            <children>
+                <items translate="title">
+                    <title>Manage Bestseller</title>
+                    <sort_order>20</sort_order>
+                    <action>bestsellerfront/adminhtml_bestseller</action>
+                </items>
+                <item3 translate="title">
+                    <title>Config</title>
+                    <sort_order>30</sort_order>
+                    <action>adminhtml/system_config/edit/section/sm_bestseller</action>
+                </item3>
+
+
+                <!--<setting module="admin">-->
+                    <!--<title>Config</title>-->
+                    <!--<sort_order>20</sort_order>-->
+                    <!--<action>adminhtml/system_config/edit/section/sm_megamenu</action>-->
+                <!--</setting>-->
+            </children>
+        </sm_bestseller>
+    </menu>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <sm_bestseller>
+                                        <title>feature List</title>
+                                    </sm_bestseller>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

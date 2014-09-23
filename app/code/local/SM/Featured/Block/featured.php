@@ -37,7 +37,11 @@ class SM_Featured_Block_Featured extends Mage_Catalog_Block_Product_New{
         // Filter by Category if it is in category page
         else if(in_array($CategoryHandle, $HandleArray)){
 //            echo 'in cate';
-            $collection->addAttributeToFilter('is_featured',1);
+            // if in home it's will not be shown in category
+//            $collection->addAttributeToFilter('is_featured',1);
+
+            // if in home it's also show in category
+            $collection->addAttributeToFilter('is_featured',array('in'=>array('1','2')));
             $CategoryId = Mage::getModel('catalog/layer')->getCurrentCategory()->getId();
             $CategoryModel = Mage::getModel('catalog/category')->load($CategoryId);
             $collection->addCategoryFilter($CategoryModel)

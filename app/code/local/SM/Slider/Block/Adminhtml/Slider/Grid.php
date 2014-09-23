@@ -4,6 +4,7 @@ class SM_Slider_Block_Adminhtml_Slider_Grid extends Mage_Adminhtml_Block_Widget_
 {
   public function __construct()
   {
+
 //      echo __METHOD__;
       parent::__construct();
       $this->setId('sliderGrid');

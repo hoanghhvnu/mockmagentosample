@@ -1,6 +1,6 @@
 <?php
 
-class SM_Megamenu_Block_Adminhtml_Megamenu_Edit_Tab_Form extends Mage_Adminhtml_Block_Widget_Form
+class SM_Bestseller_Block_Adminhtml_Bestseller_Edit_Tab_Form extends Mage_Adminhtml_Block_Widget_Form
 {
   protected function _prepareForm()
   {
@@ -8,125 +8,30 @@ class SM_Megamenu_Block_Adminhtml_Megamenu_Edit_Tab_Form extends Mage_Adminhtml_
 //      die();
       $form = new Varien_Data_Form();
       $this->setForm($form);
-      $fieldset = $form->addFieldset('megamenu_form', array('legend'=>Mage::helper('megamenu')->__('Item information')));
-     
-      $Title = $fieldset->addField('title', 'text', array(
-          'label'     => Mage::helper('megamenu')->__('Title'),
+      $fieldset = $form->addFieldset('bestseller_form', array('legend'=>Mage::helper('bestseller')->__('Bestseller information')));
+
+
+      $fieldset->addField('datefrom', 'date', array(
+          'label' => Mage::helper('bestseller')->__('From'),
+          'after_element_html' => 'Date',
           'class'     => 'required-entry',
           'required'  => true,
-          'name'      => 'title',
+          'image' => $this->getSkinUrl('images/grid-cal.gif'),
+          'format' => Mage::app()->getLocale()->getDateFormat(Mage_Core_Model_Locale::FORMAT_TYPE_MEDIUM)
       ));
 
-      $Type = $fieldset->addField('type', 'select', array(
-          'label'     => Mage::helper('megamenu')->__('Type'),
-          'name'      => 'type',
-          'values'    => array(
-              array(
-                  'value'     => 1,
-                  'label'     => Mage::helper('megamenu')->__('Category link'),
-              ),
-
-              array(
-                  'value'     => 2,
-                  'label'     => Mage::helper('megamenu')->__('Custom link'),
-              ),
-
-              array(
-                  'value'     => 3,
-                  'label'     => Mage::helper('megamenu')->__('Block link'),
-              ),
-          ),
-      ));
-
-//      $fieldset->addField('filename', 'file', array(
-//          'label'     => Mage::helper('megamenu')->__('File'),
-//          'required'  => false,
-//          'name'      => 'filename',
-//	  ));
-      $Link = $fieldset->addField('link', 'text', array(
-          'label'     => Mage::helper('megamenu')->__('Link'),
-          'name'      => 'link',
+      $fieldset->addField('dateto', 'date', array(
+          'label' => Mage::helper('bestseller')->__('To'),
+          'after_element_html' => 'Date',
+          'class'     => 'required-entry',
+          'required'  => true,
+          'image' => $this->getSkinUrl('images/grid-cal.gif'),
+          'format' => Mage::app()->getLocale()->getDateFormat(Mage_Core_Model_Locale::FORMAT_TYPE_MEDIUM)
       ));
 
 
 
-      $StaticBlockId = $fieldset->addField('static_block_id', 'select', array(
-          'label'     => Mage::helper('megamenu')->__('Static Block'),
-          'name'      => 'static_block_id',
-          'values'    => $this->getListStaticBlock(),
 
-      ));
-
-
-      $CategoryId = $fieldset->addField('category_id', 'select', array(
-          'label'     => Mage::helper('megamenu')->__('Category link'),
-          'name'      => 'category_id',
-          'values'    => $this->getCategoryForForm(),
-
-      ));
-
-
-      $Status = $fieldset->addField('status', 'select', array(
-          'label'     => Mage::helper('megamenu')->__('Status'),
-          'name'      => 'status',
-          'values'    => array(
-              array(
-                  'value'     => 1,
-                  'label'     => Mage::helper('megamenu')->__('Enabled'),
-              ),
-
-              array(
-                  'value'     => 2,
-                  'label'     => Mage::helper('megamenu')->__('Disabled'),
-              ),
-          ),
-      ));
-
-      $Position = $fieldset->addField('position', 'text', array(
-          'label'     => Mage::helper('megamenu')->__('Position'),
-
-          'index' => 'position',
-          'name'      => 'position',
-      ));
-
-//      $this->getRawCategory();
-//      echo "<pre>";
-//      print_r($this->getCategoryForForm());
-     
-      if ( Mage::getSingleton('adminhtml/session')->getMegamenuData() )
-      {
-          $form->setValues(Mage::getSingleton('adminhtml/session')->getMegamenuData());
-          Mage::getSingleton('adminhtml/session')->setMegamenuData(null);
-      } elseif ( Mage::registry('megamenu_data') ) {
-          $form->setValues(Mage::registry('megamenu_data')->getData());
-      }
-
-      $this->setForm($form);
-      $this->setChild('form_after', $this->getLayout()->createBlock('adminhtml/widget_form_element_dependence')
-              ->addFieldMap($Title->getHtmlId(), $Title->getName())
-              ->addFieldMap($Type->getHtmlId(), $Type->getName())
-              ->addFieldMap($Link->getHtmlId(), $Link->getName())
-              ->addFieldMap($StaticBlockId->getHtmlId(), $StaticBlockId->getName())
-              ->addFieldMap($CategoryId->getHtmlId(), $CategoryId->getName())
-              ->addFieldMap($Status->getHtmlId(), $Status->getName())
-              ->addFieldMap($Position->getHtmlId(), $Position->getName())
-
-              ->addFieldDependence(
-                  $Link->getName(),
-                  $Type->getName(),
-                  '2'
-              )
-              ->addFieldDependence(
-                  $CategoryId->getName(),
-                  $Type->getName(),
-                  '1'
-              )
-              ->addFieldDependence(
-                  $StaticBlockId->getName(),
-                  $Type->getName(),
-                  '3'
-              )
-      );
       return parent::_prepareForm();
   }
 

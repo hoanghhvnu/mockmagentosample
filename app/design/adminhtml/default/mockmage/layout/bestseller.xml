@@ -3,9 +3,10 @@
 
     <bestsellerrouter_adminhtml_bestseller_index>
         <reference name="content">
+            <!--<block type="web/adminhtml_web" name="web" />-->
             <block type="bestseller/adminhtml_bestseller" name="list.bestseller" />
         </reference>
     </bestsellerrouter_adminhtml_bestseller_index>
 
-
+   
 </layout>

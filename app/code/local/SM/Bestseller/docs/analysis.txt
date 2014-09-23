@@ -1,0 +1,5 @@
+Giong featured, chi khac du lieu dau vao
+2 phuong an:
+    - Tu dong lay du lieu thang gan day nhat
+    - Lay trong khoang minh chon:
+        + Luu vao csdl ve du lieu ngay thang, kieu chon

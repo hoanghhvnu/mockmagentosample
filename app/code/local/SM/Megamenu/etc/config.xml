@@ -97,4 +97,16 @@
             </megamenu>
         </helpers>
     </global>
+    <!--<stores>-->
+        <!--<admin>-->
+            <!--<design>-->
+                <!--<package>-->
+                    <!--<name>default</name>-->
+                <!--</package>-->
+                <!--<theme>-->
+                    <!--<default>mockmage</default>-->
+                <!--</theme>-->
+            <!--</design>-->
+        <!--</admin>-->
+    <!--</stores>-->
 </config>

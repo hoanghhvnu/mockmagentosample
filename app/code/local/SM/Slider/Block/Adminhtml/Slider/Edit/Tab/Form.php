@@ -4,6 +4,7 @@ class SM_Slider_Block_Adminhtml_Slider_Edit_Tab_Form extends Mage_Adminhtml_Bloc
 {
   protected function _prepareForm()
   {
+//      echo __METHOD__;
       $form = new Varien_Data_Form();
       $this->setForm($form);
       $fieldset = $form->addFieldset('slider_form', array('legend'=>Mage::helper('slider')->__('Item information')));

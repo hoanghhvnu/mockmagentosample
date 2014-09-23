@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <SM_Bestseller>
+            <version>0.1.0</version>
+        </SM_Bestseller>
+    </modules>
+    <frontend>
+        <routers>
+            <bestsellerrouter>
+                <use>standard</use>
+                <args>
+                    <module>SM_Bestseller</module>
+                    <frontName>bestsellerfront</frontName>
+                </args>
+            </bestsellerrouter>
+        </routers>
+        <layout>
+            <updates>
+                <bestseller>
+                    <file>bestseller.xml</file>
+                </bestseller>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+			<bestsellerrouter>
+				<use>admin</use>
+				<args>
+					<module>SM_Bestseller</module>
+					<frontName>bestsellerfront</frontName>
+				</args>
+			</bestsellerrouter>
+
+            <!--rewrite-->
+            <adminhtml>
+                <args>
+                    <modules>
+                        <sm_bestseller before="Mage_Adminhtml">SM_Bestseller_Adminhtml</sm_bestseller>
+                    </modules>
+                </args>
+            </adminhtml>
+
+        </routers>
+    </admin>
+
+    <adminhtml>
+
+		<layout>
+			<updates>
+				<bestseller>
+					<file>bestseller.xml</file>
+				</bestseller>
+			</updates>
+		</layout>
+    </adminhtml>
+
+    <global>
+        <events>
+            <!--add grid to backend-->
+            <core_block_abstract_to_html_before>
+            <!--<adminhtml_block_html_before>-->
+                <observers>
+                    <add_bestseller_column_to_product_grid>
+                        <!--<type>singleton</type>-->
+                        <type>disabled</type>
+                        <class>SM_Bestseller_Model_CustomizeProductGridForBestseller</class>
+                        <method>addBestsellerColumn</method>
+                    </add_bestseller_column_to_product_grid>
+                </observers>
+            <!--</adminhtml_block_html_before>-->
+            </core_block_abstract_to_html_before>
+
+            <!--edit collection before product-->
+            <catalog_product_collection_load_before>
+                <observers>
+                    <edit_collection_to_add_bestseller>
+                        <!--<type>singleton</type>-->
+                        <type>disabled</type>
+                        <class>SM_Bestseller_Model_CustomizeProductGridForBestseller</class>
+                        <method>addSelect</method>
+                    </edit_collection_to_add_bestseller>
+                </observers>
+            </catalog_product_collection_load_before>
+
+            <!--add massaction-->
+            <adminhtml_catalog_product_grid_prepare_massaction>
+                <observers>
+                    <add_massaction_for_bestseller>
+                        <!--<type>singleton</type>-->
+                        <type>disabled</type>
+                        <class>SM_Bestseller_Model_CustomizeProductGridForBestseller</class>
+                        <method>addMassaction</method>
+                    </add_massaction_for_bestseller>
+                </observers>
+            </adminhtml_catalog_product_grid_prepare_massaction>
+        </events>
+
+        <models>
+            <bestseller>
+                <class>SM_Bestseller_Model</class>
+                <resourceModel>bestseller_mysql4</resourceModel>
+            </bestseller>
+            <bestseller_mysql4>
+                <class>SM_Bestseller_Model_Mysql4</class>
+                <!--<entities>-->
+                    <!--<bestseller>-->
+                        <!--<table>tbl_bestseller</table>-->
+                    <!--</bestseller>-->
+                <!--</entities>-->
+            </bestseller_mysql4>
+        </models>
+        <resources>
+            <bestseller_setup>
+                <setup>
+                    <module>SM_Bestseller</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </bestseller_setup>
+            <bestseller_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </bestseller_write>
+            <bestseller_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </bestseller_read>
+        </resources>
+        <blocks>
+            <bestseller>
+                <class>SM_Bestseller_Block</class>
+            </bestseller>
+
+
+            <!--<adminhtml>-->
+                <!--<rewrite>-->
+                    <!--<catalog_product_grid>SM_Bestseller_Block_Adminhtml_Featured_Grid</catalog_product_grid>-->
+                <!--</rewrite>-->
+            <!--</adminhtml>-->
+
+        </blocks>
+        <helpers>
+            <bestseller>
+                <class>SM_Bestseller_Helper</class>
+            </bestseller>
+        </helpers>
+    </global>
+    <!--for default values-->
+    <default>
+        <sm_bestseller>
+            <sm_bestseller>
+                <enable>0</enable>
+            </sm_bestseller>
+
+        </sm_bestseller>
+    </default>
+</config>

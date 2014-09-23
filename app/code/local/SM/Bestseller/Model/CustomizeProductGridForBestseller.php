@@ -5,19 +5,19 @@
  * Date: 9/17/14
  * Time: 9:01 PM
  */
-class SM_Featured_Model_CustomizeProductGrid
+class SM_Bestseller_Model_CustomizeProductGridForbestseller
 {
-    public function addFeaturedColumn(Varien_Event_Observer $observer)
+    public function addBestsellerColumn(Varien_Event_Observer $observer)
     {
 //        echo __METHOD__;
         $block = $observer->getBlock();
         if($block->getType() == 'adminhtml/catalog_product_grid'){
 //        if ($block->getId() == 'productGrid'){
-            $block->addColumnAfter('featured',
+            $block->addColumnAfter('bestseller',
                 array(
-                    'header'=> Mage::helper('catalog')->__('is Featured'),
+                    'header'=> Mage::helper('catalog')->__('Best seller'),
                     'width' => '70px',
-                    'index' => 'is_featured',
+                    'index' => 'bestseller',
                     'type'  => 'options',
                     'options' => array(
                         0 => 'No',
@@ -33,30 +33,31 @@ class SM_Featured_Model_CustomizeProductGrid
 
     public function addSelect(Varien_Event_Observer $observer){
         $collection = $observer->getCollection();
-        $collection->addAttributeToSelect('is_featured');
+        $collection->addAttributeToSelect('bestseller');
     } // end method addFeaturedColumn
 
     public function addMassaction(Varien_Event_Observer $observer)
     {
+//        echo __METHOD__;
         $block = $observer->getEvent()->getBlock();
 
-        $featurestatuses = array(
+        $bestsellerstatuses = array(
             array('label' => 'No', 'value' => '0'),
             array('label' => 'Category', 'value' => '1'),
             array('label' => 'Home', 'value' => '2'),
         );
 
-        array_unshift($featurestatuses, array('label'=>'', 'value'=>''));
-        $block->getMassactionBlock()->addItem('featured', array(
-            'label'=> Mage::helper('catalog')->__('Change Featured status'),
-            'url'  => $block->getUrl('*/*/massFeatured', array('_current'=>true)),
+        array_unshift($bestsellerstatuses, array('label'=>'', 'value'=>''));
+        $block->getMassactionBlock()->addItem('bestseller', array(
+            'label'=> Mage::helper('catalog')->__('Change Bestseller status'),
+            'url'  => $block->getUrl('*/*/massBestseller', array('_current'=>true)),
             'additional' => array(
                 'visibility' => array(
-                    'name' => 'featured',
+                    'name' => 'bestseller',
                     'type' => 'select',
                     'class' => 'required-entry',
-                    'label' => Mage::helper('catalog')->__('Featured'),
-                    'values' => $featurestatuses
+                    'label' => Mage::helper('catalog')->__('Bestseller'),
+                    'values' => $bestsellerstatuses
                 )
             )
         ));

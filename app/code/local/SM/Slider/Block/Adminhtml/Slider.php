@@ -3,7 +3,7 @@ class SM_Slider_Block_Adminhtml_Slider extends Mage_Adminhtml_Block_Widget_Grid_
 {
   public function __construct()
   {
-
+//      echo __METHOD__;
     $this->_controller = 'adminhtml_slider';
     $this->_blockGroup = 'slider';
 //      echo __METHOD__;

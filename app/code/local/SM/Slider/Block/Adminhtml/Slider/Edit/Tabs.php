@@ -5,6 +5,7 @@ class SM_Slider_Block_Adminhtml_Slider_Edit_Tabs extends Mage_Adminhtml_Block_Wi
 
   public function __construct()
   {
+//      echo __METHOD__;
       parent::__construct();
       $this->setId('slider_tabs');
       $this->setDestElementId('edit_form');
